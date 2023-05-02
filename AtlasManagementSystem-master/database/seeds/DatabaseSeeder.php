@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-
+        // 2023.05.02
+        $this->call(SubjectsTableSeeder::class);
     }
 }
