@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // 2023.05.02
+        // 2023.05.02 初期データの登録
         $this->call(SubjectsTableSeeder::class);
     }
 }
