@@ -13,5 +13,6 @@ class DatabaseSeeder extends Seeder
     {
         // 2023.05.02 初期データの登録
         $this->call(SubjectsTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
     }
 }
