@@ -23,7 +23,7 @@
       <p><a href="/logout">ログアウト</a></p>
       <p><a href="{{ route('calendar.general.show',['user_id' => Auth::id()]) }}">スクール予約</a></p>
       <!-- 2023.05.05 サイドバーの項目の一部を講師アカウントのみに表示させる -->
-      @if (auth()->user($post->role))
+      @if (auth()->user())
       <p><a href="{{ route('calendar.admin.show',['user_id' => Auth::id()]) }}">スクール予約確認</a></p>
       <p><a href="{{ route('calendar.admin.setting',['user_id' => Auth::id()]) }}">スクール枠登録</a></p>
       @endif
