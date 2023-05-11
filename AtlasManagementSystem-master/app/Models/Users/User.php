@@ -66,6 +66,11 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Calendars\ReserveSettings', 'reserve_setting_users', 'user_id', 'reserve_setting_id')->withPivot('id');
     }
 
+    // 2023.05.11 リレーション
+    // User.php=usersテーブル 関係するモデル(テーブル)のidを第三引数に記載
+    // 第三引数 user_id
+    // 第四引数は連結させる相手のモデル(テーブル)のidを第四引数に記載
+    // 第四引数 subject_id
     public function subjects(){
         return $this->belongsToMany(Subjects::class, 'subject_users', 'user_id', 'subject_id');
     }
