@@ -25,17 +25,17 @@ class RegisterFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'over_name' => 'required|max:10',
-            'under_name' => 'required|max:10',
-            'over_name_kana' => 'required|max:30',
-            'under_name_kana' => 'required|max:30',
-            'mail_address' => 'required|max:100',
+            'over_name' => 'required|max:10|string',
+            'under_name' => 'required|max:10|string',
+            'over_name_kana' => 'required|max:30|string|',
+            'under_name_kana' => 'required|max:30|string|',
+            'mail_address' => 'required|max:100|email',
             'sex' => 'required',
             'old_year' => 'required',
             'old_month' => 'required',
             'old_day' => 'required',
             'role' => 'required',
-            'password' => 'required|min:8|max:30',
+            'password' => 'required|min:8|max:30|confirmed',
 
         ];
     }
