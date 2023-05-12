@@ -21,6 +21,7 @@ class RegisterFormRequest extends FormRequest
      *
      * @return array
      */
+    // 2023.05.12 ユーザーの新規登録画面にバリデーションを追加
     public function rules()
     {
         return [

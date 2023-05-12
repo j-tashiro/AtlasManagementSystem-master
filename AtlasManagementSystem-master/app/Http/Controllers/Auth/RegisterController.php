@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use DB;
+// 2023.05.12 ユーザーの新規登録画面にバリデーションを追加
 use App\Http\Requests\RegisterFormRequest;
 
 use App\Models\Users\Subjects;
@@ -58,6 +59,7 @@ class RegisterController extends Controller
         return view('auth.register.register', compact('subjects'));
     }
 
+    // 2023.05.12 ユーザーの新規登録画面にバリデーションを追加
     public function registerPost(RegisterFormRequest $request)
     {
         DB::beginTransaction();
