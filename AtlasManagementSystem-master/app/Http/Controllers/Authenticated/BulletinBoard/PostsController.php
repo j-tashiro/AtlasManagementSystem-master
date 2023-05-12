@@ -10,6 +10,7 @@ use App\Models\Posts\Post;
 use App\Models\Posts\PostComment;
 use App\Models\Posts\Like;
 use App\Models\Users\User;
+// 2023.05.12 バリデーション
 use App\Http\Requests\BulletinBoard\PostFormRequest;
 use Auth;
 
