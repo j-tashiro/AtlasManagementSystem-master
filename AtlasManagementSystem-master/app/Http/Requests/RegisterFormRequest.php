@@ -27,9 +27,10 @@ class RegisterFormRequest extends FormRequest
         return [
             'over_name' => 'required|max:10|string',
             'under_name' => 'required|max:10|string',
-            'over_name_kana' => 'required|max:30|string|',
-            'under_name_kana' => 'required|max:30|string|',
-            'mail_address' => 'required|max:100|email',
+            // 2023.05.13 カタカナのバリデーション regex:/\A[ァ-ヶー]+\z/u
+            'over_name_kana' => 'required|max:30|string|regex:/\A[ァ-ヶー]+\z/u',
+            'under_name_kana' => 'required|max:30|string|regex:/\A[ァ-ヶー]+\z/u',
+            'mail_address' => 'required|max:100|email|unique:users,mail_address',
             'sex' => 'required',
             'old_year' => 'required',
             'old_month' => 'required',
