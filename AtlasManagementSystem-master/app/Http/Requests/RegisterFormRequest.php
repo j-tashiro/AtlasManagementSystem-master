@@ -32,30 +32,22 @@ class RegisterFormRequest extends FormRequest
             'under_name_kana' => 'required|max:30|string|regex:/\A[ァ-ヶー]+\z/u',
             'mail_address' => 'required|max:100|email|unique:users,mail_address',
             'sex' => 'required',
-            'old_year' => 'required|integer|min:2000|max:' . date('Y'),
-            'old_month' => 'required|integer|min:1|max:12',
-            'old_day' => 'required|integer|min:1|max:31',
+            'old_year' => 'required|integer',
+            'old_month' => 'required',
+            'old_day' => 'required',
             'role' => 'required',
             'password' => 'required|min:8|max:30|confirmed',
+            'concatenated' => 'required|before_or_equal:today',
 
         ];
     }
 
-    // public function prepareForValidation()
-    // {
-    //     $birthdate = Carbon::createFromDate(
-    //         $this->year,
-    //         $this->month,
-    //         $this->day
-    //     );
-
-    //     $this->merge([
-    //         'birthdate' => $birthdate,
-    //         'year' => $birthdate->year,
-    //         'month' => $birthdate->month,
-    //         'day' => $birthdate->day,
-    //     ]);
-    // }
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'concatenated' => $this->input('old_year') . '_' . $this->input('old_month') . '_' . $this->input('old_day')
+        ]);
+    }
 
     public function messages(){
         return [
