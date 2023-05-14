@@ -31,14 +31,14 @@ class RegisterFormRequest extends FormRequest
             'over_name_kana' => 'required|max:30|string|regex:/\A[ァ-ヶー]+\z/u',
             'under_name_kana' => 'required|max:30|string|regex:/\A[ァ-ヶー]+\z/u',
             'mail_address' => 'required|max:100|email|unique:users,mail_address',
-            'sex' => 'required',
+            'sex' => 'required|in:1,2,3,',
             'old_year' => 'required|integer',
             'old_month' => 'required',
             'old_day' => 'required',
-            'role' => 'required',
+            'role' => 'required|in:1,2,3,4,',
             'password' => 'required|min:8|max:30|confirmed',
-            'concatenated' => 'required|before_or_equal:today',
 
+            'concatenated' => 'required|before_or_equal:today',
         ];
     }
 
