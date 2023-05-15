@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\Date;
 
 class RegisterFormRequest extends FormRequest
 {
@@ -37,15 +38,14 @@ class RegisterFormRequest extends FormRequest
             'old_day' => 'required',
             'role' => 'required|in:1,2,3,4,',
             'password' => 'required|min:8|max:30|confirmed',
-
-            'concatenated' => 'required|before_or_equal:today',
+            'birthDate' => 'required|after_or_equal:2000/1/1|date|date_format:Y-m-d',
         ];
     }
 
     protected function prepareForValidation()
     {
         $this->merge([
-            'concatenated' => $this->input('old_year') . '_' . $this->input('old_month') . '_' . $this->input('old_day')
+            'birthDate' => $this->input('old_year') . '-' . $this->input('old_month') . '-' . $this->input('old_day')
         ]);
     }
 
