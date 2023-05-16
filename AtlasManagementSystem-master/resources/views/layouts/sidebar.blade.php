@@ -22,11 +22,11 @@
       <p><a href="{{ route('top.show') }}">トップ</a></p>
       <p><a href="/logout">ログアウト</a></p>
       <p><a href="{{ route('calendar.general.show',['user_id' => Auth::id()]) }}">スクール予約</a></p>
-      <!-- 2023.05.05 サイドバーの項目の一部を講師アカウントのみに表示させる -->
-
+      <!-- 2023.05.16 サイドバーの項目の一部を講師アカウントのみに表示させる -->
+      @if (Auth::user()->role != 4)
       <p><a href="{{ route('calendar.admin.show',['user_id' => Auth::id()]) }}">スクール予約確認</a></p>
       <p><a href="{{ route('calendar.admin.setting',['user_id' => Auth::id()]) }}">スクール枠登録</a></p>
-
+      @endif
       <p><a href="{{ route('post.show') }}">掲示板</a></p>
       <p><a href="{{ route('user.show') }}">ユーザー検索</a></p>
       @show
