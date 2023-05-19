@@ -12,7 +12,7 @@
         <div class="d-flex post_status">
           <div class="mr-5">
             <!-- 2023.05.18 いいねの数を表示 -->
-            <i class="fa fa-comment"></i><span class="">{{ $post->like()->like_user_id->count() }}</span>
+            <i class="fa fa-comment"></i><span class=""></span>
           </div>
           <div>
             @if(Auth::user()->is_Like($post->id))
