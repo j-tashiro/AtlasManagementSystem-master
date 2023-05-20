@@ -11,14 +11,17 @@
       <div class="post_bottom_area d-flex">
         <div class="d-flex post_status">
           <div class="mr-5">
-            <!-- 2023.05.18 いいねの数を表示 -->
             <i class="fa fa-comment"></i><span class=""></span>
           </div>
           <div>
+            <!-- 2023.05.20 いいねの数を表示 -->
+            <!-- 2023.05.20 User.phpのis_Likeメソッドと連動している -->
             @if(Auth::user()->is_Like($post->id))
-            <p class="m-0"><i class="fas fa-heart un_like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{ $post->id }}"></span></p>
+            <!-- 2023.05.20 like.phpのlikeCountsメソッドと連動している -->
+            <p class="m-0"><i class="fas fa-heart un_like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{ $post->id }}">{{ $like->likeCounts($post->id) }}</span></p>
             @else
-            <p class="m-0"><i class="fas fa-heart like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{ $post->id }}"></span></p>
+            <!-- 2023.05.20 like.phpのlikeCountsメソッドと連動している -->
+            <p class="m-0"><i class="fas fa-heart like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{ $post->id }}">{{ $like->likeCounts($post->id) }}</span></p>
             @endif
           </div>
         </div>

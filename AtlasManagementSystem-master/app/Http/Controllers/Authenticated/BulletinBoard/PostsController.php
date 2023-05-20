@@ -17,8 +17,10 @@ use Auth;
 class PostsController extends Controller
 {
     public function show(Request $request){
+        // 2023.05.20 Post::with('user', 'postComments')の'user', 'postComments'はPost.phpのuserメソッドとpostCommentsメソッドと連動している
         $posts = Post::with('user', 'postComments')->get();
         $categories = MainCategory::get();
+        // 2023.05.20 new Like;のLikeはlike.phpと連動している
         $like = new Like;
         $post_comment = new Post;
         if(!empty($request->keyword)){
