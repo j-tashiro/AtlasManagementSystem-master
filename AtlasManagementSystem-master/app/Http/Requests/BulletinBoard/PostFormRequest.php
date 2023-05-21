@@ -37,4 +37,12 @@ class PostFormRequest extends FormRequest
             'post_body.max' => '最大文字数は500文字です。',
         ];
     }
+
+    // // 2023.05.21 投稿編集
+    public function updateRules(){
+        return [
+            'post_title' => 'min:4|max:50',
+            'post_body' => 'min:10|max:500',
+        ];
+    }
 }
