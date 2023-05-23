@@ -24,6 +24,7 @@ class PostFormRequest extends FormRequest
     public function rules()
     {
         return [
+            // 2023.05.23 viewファイルに記述してあるname属性とリンクしてる
             'post_title' => 'min:4|max:50',
             'post_body' => 'min:10|max:500',
         ];
