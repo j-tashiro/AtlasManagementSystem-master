@@ -60,17 +60,7 @@ class PostsController extends Controller
         return redirect()->route('post.show');
     }
 
-    // 2023.05.21 投稿編集
-    public function postUpdate(PostFormRequest $request, $id){
-        $post = Post::findOrFail($id);
-        $post->update([
-            'post_title' => $request->post_title,
-            'post' => $request->post_body
-        ]);
-        return redirect()->route('post.show');
-    }
-
-    public function postEdit(Request $request){
+    public function postEdit(PostFormRequest $request){
         Post::where('id', $request->post_id)->update([
             'post_title' => $request->post_title,
             'post' => $request->post_body,
