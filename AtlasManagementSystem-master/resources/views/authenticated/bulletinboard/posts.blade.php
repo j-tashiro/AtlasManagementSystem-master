@@ -11,7 +11,8 @@
       <div class="post_bottom_area d-flex">
         <div class="d-flex post_status">
           <div class="mr-5">
-            <i class="fa fa-comment"></i><span class=""></span>
+            <!-- 2023.05.24 コメントの数を表示 -->
+            <i class="fa fa-comment"></i><span class="">{{ $post_comment->commentCounts($post->id)->count() }}</span>
           </div>
           <div>
             <!-- 2023.05.20 いいねの数を表示 -->

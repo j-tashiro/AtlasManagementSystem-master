@@ -27,7 +27,7 @@ class Post extends Model
         // リレーションの定義
     }
 
-    // コメント数
+    // 2023.05.24 コメントの数を表示
     public function commentCounts($post_id){
         return Post::with('postComments')->find($post_id)->postComments();
     }
