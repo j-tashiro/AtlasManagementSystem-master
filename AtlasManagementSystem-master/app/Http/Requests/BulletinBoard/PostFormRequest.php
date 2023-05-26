@@ -25,7 +25,6 @@ class PostFormRequest extends FormRequest
             // 2023.05.23 viewファイルに記述してあるname属性とリンクしてる
             'post_title' => 'required|max:100|string',
             'post_body' => 'required|max:5000|string',
-            // 'comment' => 'required|max:2500',
         ];
     }
 
@@ -35,7 +34,6 @@ class PostFormRequest extends FormRequest
             'post_title.required' => '必須だぜ？',
             'post_body.max' => '最大文字数は5000文字です。',
             'post_body.required' => '必須だぜ？',
-            'comment.max' => '最大文字数は2500文字です。',
         ];
     }
 

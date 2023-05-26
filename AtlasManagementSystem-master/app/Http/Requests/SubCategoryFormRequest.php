@@ -22,7 +22,7 @@ class SubCategoryFormRequest extends FormRequest
      */
     public function rules(){
         return [
-            'sub_category_name' => 'required|unique:sub_categories,sub_category|max:100',
+            'sub_category_name' => 'required|max:100|string|unique:sub_categories,sub_category',
         ];
     }
 

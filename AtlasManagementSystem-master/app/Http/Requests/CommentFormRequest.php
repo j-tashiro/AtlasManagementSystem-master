@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class mainCategoryFormRequest extends FormRequest
+class CommentFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,14 +22,13 @@ class mainCategoryFormRequest extends FormRequest
      */
     public function rules(){
         return [
-            'main_category_name' => 'required|max:100|string|unique:main_categories,main_category',
+            'comment' => 'required|max:2500|string',
         ];
     }
 
     public function messages(){
         return [
-            'main_category_name.max' => '100文字以内で入力してください。',
-            'main_category_name.unique' => 'すでに使用されているカテゴリー名です！',
+            'comment.max' => '最大文字数は2500文字です。',
         ];
     }
 }
