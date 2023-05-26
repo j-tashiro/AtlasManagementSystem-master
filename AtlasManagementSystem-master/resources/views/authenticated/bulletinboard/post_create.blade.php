@@ -35,7 +35,7 @@
   @can('admin')
   <div class="w-25 ml-auto mr-auto">
     <div class="category_area mt-5 p-5">
-    @if($errors->first('main_category_name'))
+      @if($errors->first('main_category_name'))
       <span class="error_message">{{ $errors->first('main_category_name') }}</span>
       @endif
       <div class="">

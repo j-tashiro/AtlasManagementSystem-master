@@ -13,6 +13,7 @@ use App\Models\Users\User;
 // 2023.05.12 バリデーション
 use App\Http\Requests\BulletinBoard\PostFormRequest;
 use App\Http\Requests\MainCategoryFormRequest;
+use App\Http\Requests\SubCategoryFormRequest;
 use Auth;
 
 class PostsController extends Controller
@@ -77,7 +78,7 @@ class PostsController extends Controller
         MainCategory::create(['main_category' => $request->main_category_name]);
         return redirect()->route('post.input');
     }
-    public function subCategoryCreate(Request $request){
+    public function subCategoryCreate(SubCategoryFormRequest $request){
         SubCategory::create(['sub_category' => $request->sub_category_name]);
         return redirect()->route('post.input');
     }
