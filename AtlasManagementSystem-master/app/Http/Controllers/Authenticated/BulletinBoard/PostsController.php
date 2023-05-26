@@ -14,6 +14,7 @@ use App\Models\Users\User;
 use App\Http\Requests\BulletinBoard\PostFormRequest;
 use App\Http\Requests\MainCategoryFormRequest;
 use App\Http\Requests\SubCategoryFormRequest;
+use App\Http\Requests\EditFormRequest;
 use Auth;
 
 class PostsController extends Controller
@@ -62,7 +63,7 @@ class PostsController extends Controller
         return redirect()->route('post.show');
     }
 
-    public function postEdit(PostFormRequest $request){
+    public function postEdit(EditFormRequest $request){
         Post::where('id', $request->post_id)->update([
             'post_title' => $request->post_title,
             'post' => $request->post_body,

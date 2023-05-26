@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\BulletinBoard;
+namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostFormRequest extends FormRequest
+class EditFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,21 +22,16 @@ class PostFormRequest extends FormRequest
      */
     public function rules(){
         return [
-            // 2023.05.23 viewファイルに記述してあるname属性とリンクしてる
             'post_title' => 'required|max:100|string',
             'post_body' => 'required|max:5000|string',
-            // 'comment' => 'required|max:2500',
         ];
     }
-
     public function messages(){
         return [
             'post_title.max' => 'タイトルは100文字以内で入力してください。',
             'post_title.required' => '必須だぜ？',
             'post_body.max' => '最大文字数は5000文字です。',
             'post_body.required' => '必須だぜ？',
-            'comment.max' => '最大文字数は2500文字です。',
         ];
     }
-
 }
