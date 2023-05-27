@@ -28,6 +28,7 @@ class CommentFormRequest extends FormRequest
 
     public function messages(){
         return [
+            'comment.required' => '必須項目です！',
             'comment.max' => '最大文字数は2500文字です。',
         ];
     }
