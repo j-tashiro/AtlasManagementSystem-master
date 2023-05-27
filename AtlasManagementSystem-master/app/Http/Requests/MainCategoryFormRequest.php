@@ -28,6 +28,7 @@ class mainCategoryFormRequest extends FormRequest
 
     public function messages(){
         return [
+            'main_category_name.required' => '必須項目です！',
             'main_category_name.max' => '100文字以内で入力してください。',
             'main_category_name.unique' => 'すでに使用されているカテゴリー名です！',
         ];
