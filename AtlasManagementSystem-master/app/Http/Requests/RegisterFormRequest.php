@@ -54,7 +54,17 @@ class RegisterFormRequest extends FormRequest
 
     public function messages(){
         return [
+            'over_name.required' => '姓は必ず入力してください。',
             'over_name.max' => '姓は10文字以内で入力してください。',
+            'under_name.required' => '名前は必ず入力してください。',
+            'under_name.max' => '名前は10文字以内で入力してください。',
+            'over_name_kana.required' => 'セイは必ず入力してください。',
+            'over_name_kana.max' => 'セイは30文字以内で入力してください。',
+            'under_name_kana.required' => 'ナマエは必ず入力してください。',
+            'under_name_kana.max' => 'ナマエは30文字以内で入力してください。',
+            'mail_address.required' => '必須項目です。',
+            'mail_address.max' => '100文字以内で入力してください。',
+            'mail_address.unique' => 'すでに使用されているメールアドレスです。',
         ];
     }
 }
