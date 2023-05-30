@@ -43,7 +43,11 @@
       </div>
       <div>
         @if($user->role == 4)
-        <span>選択科目 :{{ $user->subjects }}</span>
+        <span>選択科目 :</span>
+        <!-- 2023.05.30 機能追加 苦労した部分 -->
+        @foreach($user->subjects as $subject)
+          <span>{{ $subject->subject }}</span>
+        @endforeach
         @endif
       </div>
     </div>
