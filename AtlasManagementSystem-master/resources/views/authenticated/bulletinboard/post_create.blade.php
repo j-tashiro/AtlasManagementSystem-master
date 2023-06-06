@@ -49,7 +49,7 @@
     <div class="category_area  p-5">
       <div class="">
         <p class="m-0">サブカテゴリー</p>
-        <select class="w-100" form="postCreate" name="post_category_id">
+        <select class="w-100" form="subCategoryRequest" name="post_category_id">
         <option disabled selected>---</option>
           @foreach($main_categories as $main_category)
             <option label="{{ $main_category->main_category }}"></option>
