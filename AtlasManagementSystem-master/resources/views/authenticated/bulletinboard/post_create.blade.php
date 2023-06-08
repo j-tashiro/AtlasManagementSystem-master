@@ -47,6 +47,9 @@
     </div>
     <!-- 2023.5.25.サブカテゴリー追加 -->
     <div class="category_area  p-5">
+    @if($errors->first('sub_category_name'))
+      <span class="error_message">{{ $errors->first('sub_category_name') }}</span>
+      @endif
       <div class="">
         <p class="m-0">サブカテゴリー</p>
         <select class="w-100" form="subCategoryRequest" name="main_category_id">
