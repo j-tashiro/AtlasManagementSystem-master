@@ -54,6 +54,22 @@
             @endforeach
 
         @endforeach
+
+
+        <section class="accordion">
+        @foreach($categories as $category)
+		<input id="block-{{ $category->id }}" type="checkbox" class="toggle">
+		<label class="Label" for="block-{{ $category->id }}"><li class="main_categories" category_id="{{ $category->id }}"><span>{{ $category->main_category }}</span></li></label>
+		<div class="content">
+            @foreach($category->subCategories as $subCategory)
+              <li class="sub_categories" category_id="{{ $subCategory->id }}"><span>{{ $subCategory->sub_category }}</span></li>
+            @endforeach
+		</div>
+
+        @endforeach
+        </section>
+
+
       </ul>
     </div>
   </div>
