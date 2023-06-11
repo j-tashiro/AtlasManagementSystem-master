@@ -40,11 +40,19 @@
       <input type="submit" name="like_posts" class="category_btn" value="いいねした投稿" form="postSearchRequest">
       <input type="submit" name="my_posts" class="category_btn" value="自分の投稿" form="postSearchRequest">
       <ul>
+        <!-- 2023.06.11 サブカテゴリーを表示 苦戦した所 -->
         @foreach($categories as $category)
           <li class="main_categories" category_id="{{ $category->id }}"><span>{{ $category->main_category }}</span></li>
+          <!-- ($category->subCategories as $subCategory)の$categoryは
+          ($categories as $category)の$categoryと連動している -->
+
+          <!-- ($category->subCategories as $subCategory)のsubCategoriesは
+          MainCategory.phpのsubCategoriesメソッドと連動している-->
+
             @foreach($category->subCategories as $subCategory)
               <li class="sub_categories" category_id="{{ $subCategory->id }}"><span>{{ $subCategory->sub_category }}</span></li>
             @endforeach
+
         @endforeach
       </ul>
     </div>
