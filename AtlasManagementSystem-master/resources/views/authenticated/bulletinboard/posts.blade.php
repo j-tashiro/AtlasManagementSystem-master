@@ -37,6 +37,7 @@
         <input type="text" placeholder="キーワードを検索" name="keyword" form="postSearchRequest">
         <input type="submit" value="検索" form="postSearchRequest">
       </div>
+      <input type="submit" name="category_word" class="category_btn" value="サブカテゴリー" form="postSearchRequest">
       <input type="submit" name="like_posts" class="category_btn" value="いいねした投稿" form="postSearchRequest">
       <input type="submit" name="my_posts" class="category_btn" value="自分の投稿" form="postSearchRequest">
       <ul>

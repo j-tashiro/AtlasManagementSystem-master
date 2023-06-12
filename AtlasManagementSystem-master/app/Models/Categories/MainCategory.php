@@ -12,6 +12,8 @@ class MainCategory extends Model
         'main_category'
     ];
 
+    // 2023.06.12
+    // ->hasMany 一(main_categoriesテーブル)対多(sub_categoriesテーブル)
     public function subCategories(){
         return $this->hasMany(SubCategory::class);
     }
