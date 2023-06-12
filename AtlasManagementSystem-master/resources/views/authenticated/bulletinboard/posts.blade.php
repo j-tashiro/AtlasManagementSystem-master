@@ -41,6 +41,8 @@
       <input type="submit" name="my_posts" class="category_btn" value="自分の投稿" form="postSearchRequest">
       <ul>
         <!-- 2023.06.11 サブカテゴリーを表示 苦戦した所 -->
+        <!-- https://www.omakase.net/blog/2022/05/css-accordion.html -->
+
           <!-- ($category->subCategories as $subCategory)の$categoryは
           ($categories as $category)の$categoryと連動している -->
 
