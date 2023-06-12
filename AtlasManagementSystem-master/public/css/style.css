@@ -17,6 +17,7 @@ li{
 .sidebar{
   width:150px;
   height:100vh;
+  /* height:auto; */
   background-color:#03AAD2;
   font-weight:bold;
 }
