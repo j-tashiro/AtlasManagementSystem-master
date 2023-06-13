@@ -33,6 +33,7 @@ class PostsController extends Controller
             ->orWhere('post', 'like', '%'.$request->keyword.'%')->get();
         // 2023.06.13 改修後 サブカテゴリーの追加
         // viewファイルから送られてくる情報がidではなくサブカテゴリーの単語だった場合の記述
+        // ->whereHas
         }else if($request->category_word) {
             $sub_category_word = $request->category_word;
             $posts = SubCategory::where('sub_category', $sub_category_word)->first()
