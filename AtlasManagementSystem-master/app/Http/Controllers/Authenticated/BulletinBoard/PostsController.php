@@ -32,7 +32,8 @@ class PostsController extends Controller
             ->where('post_title', 'like', '%'.$request->keyword.'%')
             ->orWhere('post', 'like', '%'.$request->keyword.'%')->get();
         }
-        // 2023.06.13 改修後
+        // 2023.06.13 改修後 サブカテゴリーの追加
+        // viewファイルから送られてくる情報がidではなくサブカテゴリーの単語だった場合の記述
         else if ($request->category_word) {
             $sub_category_word = $request->category_word;
             $sub_category = SubCategory::where('sub_category', $sub_category_word)->first();
@@ -46,6 +47,7 @@ class PostsController extends Controller
             $likes = Auth::user()->likePostId()->get('like_post_id');
             $posts = Post::with('user', 'postComments')
             ->whereIn('id', $likes)->get();
+            dd($likes);
         }else if($request->my_posts){
             $posts = Post::with('user', 'postComments')
             ->where('user_id', Auth::id())->get();

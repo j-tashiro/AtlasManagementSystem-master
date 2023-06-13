@@ -44,12 +44,14 @@
         <!-- 2023.06.11 サブカテゴリーを表示 苦戦した所 -->
         <!-- https://www.omakase.net/blog/2022/05/css-accordion.html -->
 
-          <!-- ($category->subCategories as $subCategory)の$categoryは
-          ($categories as $category)の$categoryと連動している -->
+        <!-- ($category->subCategories as $subCategory)の$categoryは
+        ($categories as $category)の$categoryと連動している -->
 
-          <!-- ($category->subCategories as $subCategory)のsubCategoriesは
-          MainCategory.phpのsubCategoriesメソッドと連動している-->
+        <!-- ($category->subCategories as $subCategory)のsubCategoriesは
+        MainCategory.phpのsubCategoriesメソッドと連動している-->
 
+        <!-- 2023.06.13 改修後 サブカテゴリーの追加
+        viewファイルから送られてくる情報がidではなくサブカテゴリーの単語だった場合の記述 -->
         <section class="accordion">
           @foreach($categories as $category)
             <input id="block-{{ $category->id }}" type="checkbox" class="toggle">
