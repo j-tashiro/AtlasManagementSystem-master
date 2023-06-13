@@ -56,8 +56,8 @@
             <label class="Label" for="block-{{ $category->id }}"><li class="main_categories" category_id="{{ $category->id }}"><span>{{ $category->main_category }}</span></li></label>
             <div class="content">
               @foreach($category->subCategories as $subCategory)
-              <input type="submit" name="category_word" class="category_btn" value="{{ $subCategory->sub_category }}" form="postSearchRequest">
-                <li class="sub_categories" category_id="{{ $subCategory->id }}"><span>{{ $subCategory->sub_category }}</span></li>
+              <input type="submit" name="category_word" class="category_btn" category_id="{{ $subCategory->id }}" value="{{ $subCategory->sub_category }}" form="postSearchRequest">
+                <!-- <li class="sub_categories" category_id="{{ $subCategory->id }}"><span>{{ $subCategory->sub_category }}</span></li> -->
               @endforeach
             </div>
           @endforeach
