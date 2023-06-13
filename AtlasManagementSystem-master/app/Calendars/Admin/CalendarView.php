@@ -5,7 +5,6 @@ use App\Models\Users\User;
 
 class CalendarView{
   private $carbon;
-
   function __construct($date){
     $this->carbon = new Carbon($date);
   }

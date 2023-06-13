@@ -1,11 +1,9 @@
 <?php
 namespace App\Calendars\General;
-
 use Carbon\Carbon;
 use Auth;
 
 class CalendarView{
-
   private $carbon;
   function __construct($date){
     $this->carbon = new Carbon($date);
