@@ -34,10 +34,22 @@ class PostsController extends Controller
         }
         // 2023.06.13 改修後 サブカテゴリーの追加
         // viewファイルから送られてくる情報がidではなくサブカテゴリーの単語だった場合の記述
+        // パターン➀
         else if ($request->category_word) {
+            $sub_category_word = $request->category_word;
+            $sub_category = SubCategory::where('sub_category', $sub_category_word)->first();
+            if ($sub_category) {
+                $posts = $sub_category->posts()->with('user', 'postComments')->get();
+            } else {
+                $posts = Post::with('user', 'postComments')->get();
+            }
+
+        // パターン➁ 短縮版
+        }else if ($request->category_word) {
             $sub_category_word = $request->category_word;
             $posts = SubCategory::where('sub_category', $sub_category_word)->first()
             ->posts()->with('user', 'postComments')->get() ?? Post::with('user', 'postComments')->get();
+
 
 
         }else if($request->like_posts){
