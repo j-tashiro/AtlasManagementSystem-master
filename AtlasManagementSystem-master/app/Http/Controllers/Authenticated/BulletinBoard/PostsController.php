@@ -31,12 +31,8 @@ class PostsController extends Controller
             $posts = Post::with('user', 'postComments')
             ->where('post_title', 'like', '%'.$request->keyword.'%')
             ->orWhere('post', 'like', '%'.$request->keyword.'%')->get();
-        }// 2023.06.13 改修前
-        else if($request->category_word){
-            $sub_category = $request->category_word;
-            $posts = Post::with('user', 'postComments')->get();
-
-        }// 2023.06.13 改修後
+        }
+        // 2023.06.13 改修後
         else if ($request->category_word) {
             $sub_category_word = $request->category_word;
             $sub_category = SubCategory::where('sub_category', $sub_category_word)->first();
