@@ -20,6 +20,7 @@ class SubCategory extends Model
     }
 
     // 2023.06.12
+    // \App\Models\Posts\Post::class,はどのディレクトリを参照してるかを細かく決めてる
     public function posts(){
         return $this->belongsToMany(\App\Models\Posts\Post::class, 'post_sub_categories', 'sub_category_id', 'post_id');
     }
