@@ -36,12 +36,9 @@ class PostsController extends Controller
         // viewファイルから送られてくる情報がidではなくサブカテゴリーの単語だった場合の記述
         else if ($request->category_word) {
             $sub_category_word = $request->category_word;
-            $sub_category = SubCategory::where('sub_category', $sub_category_word)->first();
-            if ($sub_category) {
-                $posts = $sub_category->posts()->with('user', 'postComments')->get();
-            } else {
-                $posts = Post::with('user', 'postComments')->get();
-            }
+            $posts = SubCategory::where('sub_category', $sub_category_word)->first()
+            ->posts()->with('user', 'postComments')->get() ?? Post::with('user', 'postComments')->get();
+
 
         }else if($request->like_posts){
             $likes = Auth::user()->likePostId()->get('like_post_id');
