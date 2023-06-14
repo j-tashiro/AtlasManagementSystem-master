@@ -13,7 +13,6 @@ class CalendarView{
     return $this->carbon->format('Y年n月');
   }
 
-  
   // 2023.06.13. カレンダーのHTMLを生成するメソッド
   function render(){
     $html = [];
