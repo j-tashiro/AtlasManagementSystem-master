@@ -36,8 +36,8 @@ class CalendarView{
 
       $days = $week->getDays();
       foreach($days as $day){
-        $startDay = $this->carbon->copy()->format("Y-m-01");
-        $toDay = $this->carbon->copy()->format("Y-m-d");
+        $startDay = $this->carbon->copy()->format("Y-m-01");//最初の日付が変数に格納されている
+        $toDay = $this->carbon->copy()->format("Y-m-d");//今日の日付が変数に格納されている
 
         if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
           $html[] = '<td class="calendar-td">';
