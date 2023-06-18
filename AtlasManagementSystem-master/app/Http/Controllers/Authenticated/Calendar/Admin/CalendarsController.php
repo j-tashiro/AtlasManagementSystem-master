@@ -22,7 +22,7 @@ class CalendarsController extends Controller
     // 2023.06.16
     //  ($user_id = 0, $date , $part )
     // →($user_id = 0, $date = 0, $part = 0)
-    // = 0,を$dateと$partに代入することで起動している
+    // = 0,を$dateと$partに格納(代入)することで起動している
     public function reserveDetail($user_id = 0, $date = 0, $part = 0){
         $reservePersons = ReserveSettings::with('users')->where('setting_reserve', $date)->where('setting_part', $part)->get();
         return view('authenticated.calendar.admin.reserve_detail', compact('reservePersons', 'date', 'part'));

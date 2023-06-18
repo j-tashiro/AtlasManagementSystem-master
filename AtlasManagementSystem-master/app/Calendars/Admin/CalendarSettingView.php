@@ -14,6 +14,7 @@ class CalendarSettingView{
     return $this->carbon->format('Y年n月');
   }
 
+  // 2023.06.18 スクール枠登録
   public function render(){
     $html = [];
     $html[] = '<div class="calendar text-center">';
