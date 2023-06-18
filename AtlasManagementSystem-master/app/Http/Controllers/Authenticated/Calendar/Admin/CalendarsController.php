@@ -14,6 +14,7 @@ use DB;
 
 class CalendarsController extends Controller
 {
+    // 2023.06.18 スクール予約確認 表示
     public function show(){
         $calendar = new CalendarView(time());
         return view('authenticated.calendar.admin.calendar', compact('calendar'));
@@ -23,6 +24,7 @@ class CalendarsController extends Controller
     //  ($user_id = 0, $date , $part )
     // →($user_id = 0, $date = 0, $part = 0)
     // = 0,を$dateと$partに格納(代入)することで起動している
+    // reserveDetail=予約詳細
     public function reserveDetail($user_id = 0, $date = 0, $part = 0){
         $reservePersons = ReserveSettings::with('users')->where('setting_reserve', $date)->where('setting_part', $part)->get();
         return view('authenticated.calendar.admin.reserve_detail', compact('reservePersons', 'date', 'part'));
