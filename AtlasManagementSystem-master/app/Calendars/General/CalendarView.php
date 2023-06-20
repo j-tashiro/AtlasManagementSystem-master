@@ -31,16 +31,18 @@ class CalendarView{
     $html[] = '</thead>';
     $html[] = '<tbody>';
     $weeks = $this->getWeeks();
+
     foreach($weeks as $week){
       $html[] = '<tr class="'.$week->getClassName().'">';
-
       $days = $week->getDays();
       foreach($days as $day){
         $startDay = $this->carbon->copy()->format("Y-m-01");//最初の日付が変数に格納されている
         $toDay = $this->carbon->copy()->format("Y-m-d");//今日の日付が変数に格納されている
 
+        // 2023.06.20 予約画面の表示形式を変更
+        // past=過去 past-day=過去日
         if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-          $html[] = '<td class="calendar-td">';
+          $html[] = '<td class="past-day calendar-td">';
         }else{
           $html[] = '<td class="calendar-td '.$day->getClassName().'">';
         }

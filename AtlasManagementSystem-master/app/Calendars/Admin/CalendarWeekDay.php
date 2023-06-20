@@ -7,22 +7,27 @@ use App\Models\Calendars\ReserveSettings;
 class CalendarWeekDay{
   protected $carbon;
 
+
   function __construct($date){
     $this->carbon = new Carbon($date);
   }
 
+  // strtolower() 関数による文字列の小文字化
   function getClassName(){
     return "day-" . strtolower($this->carbon->format("D"));
   }
 
+  // <p>タグで囲ってHTML化してる
   function render(){
     return '<p class="day">' . $this->carbon->format("j") . '日</p>';
   }
 
+  // 年（4桁）-月（2桁）-日（2桁）の形式の文字列に変化させる
   function everyDay(){
     return $this->carbon->format("Y-m-d");
   }
 
+  // 指定された日付に対して1部、2部、3部の予約設定があるかどうかを確認し、部のラベルを含んだHTML文字列を返す。
   function dayPartCounts($ymd){
     $html = [];
     $one_part = ReserveSettings::with('users')->where('setting_reserve', $ymd)->where('setting_part', '1')->first();
@@ -44,7 +49,7 @@ class CalendarWeekDay{
     return implode("", $html);
   }
 
-
+  // 指定された日付の1部の予約可能な枠数を取得し、もしあればその数値を、なければデフォルトの数値 "20" を返す
   function onePartFrame($day){
     $one_part_frame = ReserveSettings::where('setting_reserve', $day)->where('setting_part', '1')->first();
     if($one_part_frame){
@@ -54,6 +59,7 @@ class CalendarWeekDay{
     }
     return $one_part_frame;
   }
+  // 指定された日付の2部の予約可能な枠数を取得し、もしあればその数値を、なければデフォルトの数値 "20" を返す
   function twoPartFrame($day){
     $two_part_frame = ReserveSettings::where('setting_reserve', $day)->where('setting_part', '2')->first();
     if($two_part_frame){
@@ -63,6 +69,7 @@ class CalendarWeekDay{
     }
     return $two_part_frame;
   }
+  // 指定された日付の3部の予約可能な枠数を取得し、もしあればその数値を、なければデフォルトの数値 "20" を返す
   function threePartFrame($day){
     $three_part_frame = ReserveSettings::where('setting_reserve', $day)->where('setting_part', '3')->first();
     if($three_part_frame){
@@ -73,7 +80,7 @@ class CalendarWeekDay{
     return $three_part_frame;
   }
 
-  //
+  // 日付の調整項目を含むHTMLコードを生成する
   function dayNumberAdjustment(){
     $html = [];
     $html[] = '<div class="adjust-area">';

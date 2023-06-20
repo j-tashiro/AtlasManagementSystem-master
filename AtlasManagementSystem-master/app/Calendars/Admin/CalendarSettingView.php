@@ -40,11 +40,14 @@ class CalendarSettingView{
         $startDay = $this->carbon->format("Y-m-01");
         $toDay = $this->carbon->format("Y-m-d");
 
-       if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
+        // 2023.06.20 予約画面の表示形式を変更
+        // past=過去 past-day=過去日
+        if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
           $html[] = '<td class="past-day border">';
         }else{
           $html[] = '<td class="border '.$day->getClassName().'">';
         }
+
         $html[] = $day->render();
         $html[] = '<div class="adjust-area">';
         if($day->everyDay()){

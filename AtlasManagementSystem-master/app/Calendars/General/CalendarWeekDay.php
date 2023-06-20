@@ -12,6 +12,7 @@ class CalendarWeekDay{
     $this->carbon = new Carbon($date);
   }
 
+  // カレンダーの日付に対応するクラス名を生成して返すものです。
   function getClassName(){
     return "day-" . strtolower($this->carbon->format("D"));
   }

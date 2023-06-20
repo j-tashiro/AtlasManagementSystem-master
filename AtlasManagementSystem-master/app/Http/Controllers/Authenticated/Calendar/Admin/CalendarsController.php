@@ -30,11 +30,13 @@ class CalendarsController extends Controller
         return view('authenticated.calendar.admin.reserve_detail', compact('reservePersons', 'date', 'part'));
     }
 
+    // 予約設定を表示するメソッド
     public function reserveSettings(){
         $calendar = new CalendarSettingView(time());
         return view('authenticated.calendar.admin.reserve_setting', compact('calendar'));
     }
 
+    // 予約設定の更新メソッド
     public function updateSettings(Request $request){
         $reserveDays = $request->input('reserve_day');
         foreach($reserveDays as $day => $parts){
