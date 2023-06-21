@@ -62,7 +62,7 @@ class CalendarView{
           }else if($reservePart == 3){
             $reservePart = "リモ3部";
           }
-          // 子のif文(おと)
+          // 子のif文(弟)
           // 月の最初の日から現在の日までをif文の条件に組み込んでいる
           if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){//過去の予約した日
             $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">'.$reservePart.'参加</p>';
