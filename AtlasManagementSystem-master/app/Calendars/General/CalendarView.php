@@ -75,7 +75,7 @@ class CalendarView{
           if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){//予約してない過去の日
             $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">受付終了</p>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
-          }else{//予約してない未来の日
+          }else{//予約してない未来の日 selectPartメソッドがある
             $html[] = $day->selectPart($day->everyDay());
           }
         }
