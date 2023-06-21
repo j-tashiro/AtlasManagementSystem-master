@@ -41,6 +41,7 @@ class CalendarView{
 
         // 2023.06.20 予約画面の表示形式を変更
         // past=過去 past-day=過去日
+        // 月の最初の日から現在の日までをif文の条件に組み込んでいる
         if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
           $html[] = '<td class="past-day calendar-td">';
         }else{
@@ -48,8 +49,12 @@ class CalendarView{
         }
         $html[] = $day->render();
 
+
+        // 親のif文
+        // authReserveDay=ログインしてる人の予約日だった場合
         if(in_array($day->everyDay(), $day->authReserveDay())){
           $reservePart = $day->authReserveDate($day->everyDay())->first()->setting_part;
+          // 子のif文(兄)
           if($reservePart == 1){
             $reservePart = "リモ1部";
           }else if($reservePart == 2){
@@ -57,15 +62,22 @@ class CalendarView{
           }else if($reservePart == 3){
             $reservePart = "リモ3部";
           }
-          if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-            $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px"></p>';
+          // 子のif文(おと)
+          // 月の最初の日から現在の日までをif文の条件に組み込んでいる
+          if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){//過去の予約した日
+            $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">'.$reservePart.'参加</p>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
-          }else{
+          }else{//未来の予約した日
             $html[] = '<button type="submit" class="btn btn-danger p-0 w-75" name="delete_date" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }
         }else{
-          $html[] = $day->selectPart($day->everyDay());
+          if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){//予約してない過去の日
+            $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">受付終了</p>';
+            $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
+          }else{//予約してない未来の日
+            $html[] = $day->selectPart($day->everyDay());
+          }
         }
         $html[] = $day->getDate();
         $html[] = '</td>';
