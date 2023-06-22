@@ -39,13 +39,19 @@ class CalendarView{
       foreach($days as $day){
         $startDay = $this->carbon->format("Y-m-01");
         $toDay = $this->carbon->format("Y-m-d");
+        // 月の最初の日から現在の日までをif文の条件に組み込んでいる 過去
         if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
           $html[] = '<td class="past-day border">';
+        // 月の最初の日から現在の日以外 未来
         }else{
           $html[] = '<td class="border '.$day->getClassName().'">';
         }
         $html[] = $day->render();
+        // 2023.06.22 予約している人数を表示 怪しい箇所
         $html[] = $day->dayPartCounts($day->everyDay());
+        $html[] = '<p>一部 0</p>';
+        $html[] = '<p>二部 0</p>';
+        $html[] = '<p>三部 0</p>';
         $html[] = '</td>';
       }
       $html[] = '</tr>';
