@@ -27,6 +27,9 @@
           </div>
         </div>
       </div>
+        @foreach($post->subCategories as $subject)
+          <span class="category_btn">{{ $subject->sub_category }}</span>
+        @endforeach
     </div>
     @endforeach
   </div>

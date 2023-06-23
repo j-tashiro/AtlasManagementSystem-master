@@ -23,6 +23,7 @@ class SubCategoryFormRequest extends FormRequest
     public function rules(){
         return [
             'sub_category_name' => 'required|max:100|string|unique:sub_categories,sub_category',
+            'main_category_id' => 'required|exists:main_categories,id',
         ];
     }
 
@@ -31,6 +32,8 @@ class SubCategoryFormRequest extends FormRequest
             'sub_category_name.required' => '必須項目です！',
             'sub_category_name.max' => '100文字以内で入力してください。',
             'sub_category_name.unique' => 'すでに使用されているカテゴリー名です！',
+            'main_category_id.required' => '必須項目です！',
+            'main_category_id.exists' => '駄目だぜ！',
         ];
     }
 }
