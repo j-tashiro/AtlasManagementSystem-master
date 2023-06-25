@@ -47,7 +47,7 @@ class CalendarView{
           $html[] = '<td class="border '.$day->getClassName().'">';
         }
         $html[] = $day->render();
-        // 2023.06.22 予約している人数を表示 怪しい箇所
+        // 2023.06.25 予約している人数を表示 怪しい箇所
         $html[] = $day->dayPartCounts($day->everyDay());
         $html[] = '<div class="adjust-area">';
         if($day->everyDay()){
