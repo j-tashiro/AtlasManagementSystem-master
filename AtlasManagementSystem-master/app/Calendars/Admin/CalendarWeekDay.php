@@ -34,15 +34,19 @@ class CalendarWeekDay{
     $two_part = ReserveSettings::with('users')->where('setting_reserve', $ymd)->where('setting_part', '2')->first();
     $three_part = ReserveSettings::with('users')->where('setting_reserve', $ymd)->where('setting_part', '3')->first();
 
+    // 2023.06.25 予約している人数を表示
     $html[] = '<div class="text-left">';
     if($one_part){
-      $html[] = '<p class="day_part m-0 pt-1">1部</p>';
+      $count = count($one_part->users);
+      $html[] = '<p class="day_part m-0 pt-1">1部: '.$count.'人</p>';
     }
     if($two_part){
-      $html[] = '<p class="day_part m-0 pt-1">2部</p>';
+      $count = count($two_part->users);
+      $html[] = '<p class="day_part m-0 pt-1">2部: '.$count.'人</p>';
     }
     if($three_part){
-      $html[] = '<p class="day_part m-0 pt-1">3部</p>';
+      $count = count($three_part->users);
+      $html[] = '<p class="day_part m-0 pt-1">3部: '.$count.'人</p>';
     }
     $html[] = '</div>';
 
