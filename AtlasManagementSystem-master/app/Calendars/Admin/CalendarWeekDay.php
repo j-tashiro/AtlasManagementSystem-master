@@ -36,7 +36,7 @@ class CalendarWeekDay{
 
     $html[] = '<div class="text-left">';
     if($one_part){
-      $html[] = '<p class="day_part m-0 pt-1">1部</p>';
+      $html[] = '<p class="day_part m-0 pt-1">11部</p>';
     }
     if($two_part){
       $html[] = '<p class="day_part m-0 pt-1">2部</p>';
@@ -55,7 +55,8 @@ class CalendarWeekDay{
     if($one_part_frame){
       $one_part_frame = ReserveSettings::where('setting_reserve', $day)->where('setting_part', '1')->first()->limit_users;
     }else{
-      $one_part_frame = "20";
+      // 2023.06.25 ここでカレンダーの第1部のスクール枠登録のデフォルトの上限を決めてる
+      $one_part_frame = "10";
     }
     return $one_part_frame;
   }
@@ -65,6 +66,7 @@ class CalendarWeekDay{
     if($two_part_frame){
       $two_part_frame = ReserveSettings::where('setting_reserve', $day)->where('setting_part', '2')->first()->limit_users;
     }else{
+      // 2023.06.25 ここでカレンダーの第2部のスクール枠登録のデフォルトの上限を決めてる
       $two_part_frame = "20";
     }
     return $two_part_frame;
@@ -75,7 +77,8 @@ class CalendarWeekDay{
     if($three_part_frame){
       $three_part_frame = ReserveSettings::where('setting_reserve', $day)->where('setting_part', '3')->first()->limit_users;
     }else{
-      $three_part_frame = "20";
+      // 2023.06.25 ここでカレンダーの第3部のスクール枠登録のデフォルトの上限を決めてる
+      $three_part_frame = "30";
     }
     return $three_part_frame;
   }
