@@ -60,7 +60,7 @@
       <div class="">
         <p class="m-0">サブカテゴリー</p>
         <select class="w-100" form="subCategoryRequest" name="main_category_id">
-        <option selected value="">---</option>
+        <option selected disabled value="">---</option>
           @foreach($main_categories as $main_category)
             <option value="{{ $main_category->id }}">{{ $main_category->main_category }}</option>
           @endforeach
