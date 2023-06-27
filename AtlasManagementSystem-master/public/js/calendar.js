@@ -32,3 +32,11 @@ function modalOut(e) {
     }
 }
 addEventListener('click', modalOut);
+
+
+
+
+
+
+
+

@@ -68,13 +68,10 @@ class CalendarView{
             $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">'.$reservePart.'参加</p>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }else{//未来の予約した日 モーダルを開くボタン=modal-open js-modal-open
-            $html[] = '<button type="submit" class="js-modal-open btn btn-danger p-0 w-75" name="delete_date" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
-            $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
-            
-            
-            
-            
-            
+            $html[] = '<button type="submit" class="modal-open js-modal-open btn btn-danger p-0 w-75" name="delete_date" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
+
+
+
             // 2023.06.25 予約をキャンセルをするための確認画面を追加
             $html[] = '<div class="modal js-modal">';
             $html[] = '<div class="modal-container">';
@@ -87,6 +84,7 @@ class CalendarView{
 
 
 
+            $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
 
 
 
