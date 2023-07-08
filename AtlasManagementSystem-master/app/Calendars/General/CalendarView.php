@@ -67,18 +67,18 @@ class CalendarView{
           if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){//過去の予約した日
             $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">'.$reservePart.'参加</p>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
-          }else{//未来の予約した日 モーダルを開くボタン=modal-open js-modal-open
+          }else{//未来の予約した日 
             $html[] = '<button type="submit" class="modal-open js-modal-open btn btn-danger p-0 w-75" name="delete_date" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
 
 
 
-            // 2023.06.25 予約をキャンセルをするための確認画面を追加
+            // 2023.07.08 予約をキャンセルをするための確認画面を追加
             $html[] = '<div class="modal js-modal">';
             $html[] = '<div class="modal-container">';
-            $html[] = '<div class="modal-close js-modal-close">';
-            $html[] = '×</div>';
+            $html[] = '<div class="modal-close js-modal-close">×</div>';
             $html[] = '<div class="modal-content">';
             $html[] = '<p>開きました。</p>';
+            $html[] = '</div>';
             $html[] = '</div>';
             $html[] = '</div>';
 
