@@ -27,7 +27,7 @@
 		<div class="modal-close">×</div>
 		<!-- モーダル内のコンテンツ -->
 		<div class="modal-content">
-			<p>予約日：ここにクリックした予約日を入力</p>
+			<p>予約日：{{ $calendar->getTitle() }}</p>
       <p>時間：ここにクリックした予約時間を入力</p>
       <p>上記の予約をキャンセルしてもよろしいでしょうか？</p>
       <div class="modal_btn">

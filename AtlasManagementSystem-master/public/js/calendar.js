@@ -1,33 +1,29 @@
 // https://recooord.org/jquery-modal-window/
 // 2023.07.09 予約をキャンセルをするための確認画面を追加
 $(function(){
-	// 変数に要素を入れる
-	var open = $('.modal-open'),
-		close = $('.modal-close'),
-		btn = $('.modal-close-btn'),
-		container = $('.modal-container');
+var open = $('.modal-open'),
+    close = $('.modal-close'),
+    btn = $('.modal-close-btn'),
+    container = $('.modal-container');
 
-	//開くボタンをクリックしたらモーダルを表示する
-	open.on('click',function(){
-		container.addClass('active');
-	});
+    open.on('click', function(){
+        container.addClass('active');
+    });
 
-	//閉じるボタンをクリックしたらモーダルを閉じる
-	close.on('click',function(){
-		container.removeClass('active');
-	});
-	btn.on('click',function(){
-		container.removeClass('active');
-	});
+    close.on('click',function(){
+        container.removeClass('active');
+    });
 
-	//モーダルの外側をクリックしたらモーダルを閉じる 機能してない？
-	$(document).on('click',function(e) {
-		if(!$(e.target).closest('.modal-body').length) {
-			container.removeClass('active');
-		}
-	});
+    btn.on('click',function(){
+        container.removeClass('active');
+    });
+
+    container.on('click', function(e) {
+    if (!$(e.target).closest('.modal-body').length) {
+        container.removeClass('active');
+    }
+    });
 });
-
 
 
 
