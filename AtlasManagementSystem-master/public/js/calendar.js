@@ -1,42 +1,27 @@
+// https://recooord.org/jquery-modal-window/
 $(function(){
+	// 変数に要素を入れる
+	var open = $('.modal-open'),
+		close = $('.modal-close'),
+		container = $('.modal-container');
 
+	//開くボタンをクリックしたらモーダルを表示する
+	open.on('click',function(){
+		container.addClass('active');
+	});
+
+	//閉じるボタンをクリックしたらモーダルを閉じる
+	close.on('click',function(){
+		container.removeClass('active');
+	});
+
+	//モーダルの外側をクリックしたらモーダルを閉じる
+	$(document).on('click',function(e) {
+		if(!$(e.target).closest('.modal-body').length) {
+			container.removeClass('active');
+		}
+	});
 });
-
-
-
-
-
-// https://zero-plus.io/media/javascript-modal/
-// https://recooord.org/modal-window-on-javascript/
-//要素を取得
-const modal = document.querySelector('.js-modal'),
-    open = document.querySelector('.js-modal-open'),
-    close = document.querySelector('.js-modal-close');
-
-//「開くボタン」をクリックしてモーダルを開く
-function modalOpen() {
-    modal.classList.add('is-active');
-}
-open.addEventListener('click', modalOpen);
-
-
-
-//「閉じるボタン」をクリックしてモーダルを閉じる
-function modalClose() {
-    modal.classList.remove('is-active');
-}
-close.addEventListener('click', modalClose);
-
-
-
-//「モーダルの外側」をクリックしてモーダルを閉じる
-function modalOut(e) {
-    if (e.target == modal) {
-    modal.classList.remove('is-active');
-    }
-}
-addEventListener('click', modalOut);
-
 
 
 

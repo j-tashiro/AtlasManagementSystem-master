@@ -5,8 +5,10 @@
   <div class="border w-75 m-auto pt-5 pb-5" style="border-radius:5px; background:#FFF;">
     <div class="w-75 m-auto border" style="border-radius:5px;">
 
+    <!-- Calendar.View.phpのgetTitleメソッドと連動している -->
       <p class="text-center">{{ $calendar->getTitle() }}</p>
       <div class="">
+        <!-- Calendar.View.phpのrenderメソッドと連動している -->
         {!! $calendar->render() !!}
       </div>
     </div>
@@ -15,4 +17,28 @@
     </div>
   </div>
 </div>
+
+
+<!-- 予約をキャンセルをするための確認画面を追加 -->
+<!-- モーダル本体 -->
+<div class="modal-container">
+	<div class="modal-body">
+		<!-- 閉じるボタン -->
+		<div class="modal-close">×</div>
+		<!-- モーダル内のコンテンツ -->
+		<div class="modal-content">
+			<p>予約日：？？？</p>
+      <p>時間：？？？</p>
+      <p>上記の予約をキャンセルしてもよろしいでしょうか？</p>
+      <div class="modal_btn">
+        <p class="btn">閉じる</p>
+        <p class="btn">キャンセルする</p>
+      </div>
+		</div>
+	</div>
+</div>
+
+
+
+
 @endsection
