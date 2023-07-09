@@ -1,4 +1,5 @@
 // https://recooord.org/jquery-modal-window/
+// 2023.07.09 予約をキャンセルをするための確認画面を追加
 $(function(){
 	// 変数に要素を入れる
 	var open = $('.modal-open'),
@@ -19,7 +20,7 @@ $(function(){
 		container.removeClass('active');
 	});
 
-	//モーダルの外側をクリックしたらモーダルを閉じる
+	//モーダルの外側をクリックしたらモーダルを閉じる 機能してない？
 	$(document).on('click',function(e) {
 		if(!$(e.target).closest('.modal-body').length) {
 			container.removeClass('active');

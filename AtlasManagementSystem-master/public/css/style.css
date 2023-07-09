@@ -349,3 +349,9 @@ li{
   display: flex;
   justify-content: space-between;
 }
+.btn-danger{
+  color: #FF0000;
+}
+
+
+

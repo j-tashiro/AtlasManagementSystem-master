@@ -32,7 +32,7 @@
       <p>上記の予約をキャンセルしてもよろしいでしょうか？</p>
       <div class="modal_btn">
         <button  class="btn btn-primary modal-close-btn">閉じる</button>
-        <button  class="btn btn-primary">キャンセルする</button>
+        <button  class="btn btn-danger">キャンセルする</button>
       </div>
 		</div>
 	</div>
