@@ -3,6 +3,7 @@ $(function(){
 	// 変数に要素を入れる
 	var open = $('.modal-open'),
 		close = $('.modal-close'),
+		btn = $('.modal-close-btn'),
 		container = $('.modal-container');
 
 	//開くボタンをクリックしたらモーダルを表示する
@@ -12,6 +13,9 @@ $(function(){
 
 	//閉じるボタンをクリックしたらモーダルを閉じる
 	close.on('click',function(){
+		container.removeClass('active');
+	});
+	btn.on('click',function(){
 		container.removeClass('active');
 	});
 

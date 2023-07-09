@@ -27,12 +27,12 @@
 		<div class="modal-close">×</div>
 		<!-- モーダル内のコンテンツ -->
 		<div class="modal-content">
-			<p>予約日：？？？</p>
-      <p>時間：？？？</p>
+			<p>予約日：ここにクリックした予約日を入力</p>
+      <p>時間：ここにクリックした予約時間を入力</p>
       <p>上記の予約をキャンセルしてもよろしいでしょうか？</p>
       <div class="modal_btn">
-        <p class="btn">閉じる</p>
-        <p class="btn">キャンセルする</p>
+        <button  class="btn btn-primary modal-close-btn">閉じる</button>
+        <button  class="btn btn-primary">キャンセルする</button>
       </div>
 		</div>
 	</div>
