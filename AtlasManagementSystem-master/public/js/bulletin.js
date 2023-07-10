@@ -48,6 +48,7 @@ $(function () {
     });
   });
 
+  // 投稿編集のモーダルを開いた時の処理
   $('.edit-modal-open').on('click',function(){
     $('.js-modal').fadeIn();
     var post_title = $(this).attr('post_title');
@@ -58,6 +59,7 @@ $(function () {
     $('.edit-modal-hidden').val(post_id);
     return false;
   });
+  // モーダルを閉じる
   $('.js-modal-close').on('click', function () {
     $('.js-modal').fadeOut();
     return false;

@@ -27,9 +27,16 @@ var open = $('.modal-open'),
         container.removeClass('active');
     }
     });
+
+    // 2023.07.10
+    //キャンセル時の値の受け渡し
+    var modal_day = $(this).attr('modal_day');
+    var modal_time = $(this).attr('modal_time');
+    var modal_id = $(this).attr('modal_id');
+    $('.modal_layout span').val(modal_day);
+    $('.modal_layout span').text(modal_time);
+    $('.edit-modal-hidden').val(modal_id);
+    return false;
 });
-
-
-
 
 

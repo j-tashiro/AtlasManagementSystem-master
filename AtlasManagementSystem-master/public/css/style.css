@@ -352,6 +352,8 @@ li{
 .btn-danger{
   color: #FF0000;
 }
-
+.modal_layout{
+  display: flex;
+}
 
 
