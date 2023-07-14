@@ -11,6 +11,19 @@ var open = $('.modal-open'),
         container.addClass('active');
     });
 
+    // 2023.07.13
+    //キャンセル時の値の受け渡し
+    // jQueryメソッド→attr val text
+    // textはviewに文字を表示させる
+    // valはhtmlのvalueと同じ意味 データ(情報)を送る
+    // attr=属性
+    var modal_day = $(this).attr('modal_day');
+    var modal_time = $('.modal-open').attr('modal_time');
+    $('.modal_layout span').text(modal_day);
+    $('.modal_layout span').text(modal_time);
+    $('.modal_layout span').val(modal_time);
+    return false;
+});
     // 2023.07.09 モーダルを閉じる ×ボタンをクリックして閉じる
     close.on('click',function(){
         container.removeClass('active');
@@ -28,15 +41,7 @@ var open = $('.modal-open'),
     }
     });
 
-    // 2023.07.10
-    //キャンセル時の値の受け渡し
-    var modal_day = $(this).attr('modal_day');
-    var modal_time = $(this).attr('modal_time');
-    var modal_id = $(this).attr('modal_id');
-    $('.modal_layout span').val(modal_day);
-    $('.modal_layout span').text(modal_time);
-    $('.edit-modal-hidden').val(modal_id);
-    return false;
-});
+
+
 
 

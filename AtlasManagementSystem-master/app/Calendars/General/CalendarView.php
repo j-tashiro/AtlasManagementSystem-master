@@ -68,7 +68,14 @@ class CalendarView{
             $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">'.$reservePart.'参加</p>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }else{//未来の予約した日
-            $html[] = '<button type="submit" class="modal-open btn btn-danger p-0 w-75" name="delete_date" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
+            $html[] = '<button type="submit"
+            modal_day="{{ $post->post_title }}"
+            modal_time="'.$reservePart.'"
+            class="modal-open btn btn-danger p-0 w-75"
+            name="delete_date" style="font-size:12px"
+            value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">
+            '. $reservePart .'
+            </button>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }
         }else{

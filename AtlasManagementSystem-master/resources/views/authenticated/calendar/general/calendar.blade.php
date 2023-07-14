@@ -28,13 +28,13 @@
 		<!-- モーダル内のコンテンツ -->
 		<div class="modal-content">
       <div class="modal_layout">
-        <!-- 2023.07.10 -->
+        <!-- 2023.07.13 -->
         <p>予約日：</p>
-        <span name="modal_day">jsが上手くいってれば表示されるはず</span>
+        <span name="modal_day"></span>
       </div>
         <div class="modal_layout">
           <p>時間：</p>
-          <span name="modal_time">jsが上手くいってれば表示されるはず</span>
+          <span name="modal_time"></span>
         </div>
       <p>上記の予約をキャンセルしてもよろしいでしょうか？</p>
       <div class="modal_btn">
