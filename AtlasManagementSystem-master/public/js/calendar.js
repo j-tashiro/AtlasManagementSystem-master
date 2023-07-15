@@ -9,7 +9,8 @@ var open = $('.modal-open'),
     // 2023.07.15 モーダルを開く キャンセル時の値の受け渡し
     // jQueryメソッド→attr attr=属性 val text
     // textはviewに文字を表示させる valはhtmlのvalueと同じ意味 データ(情報)を送る
-    // $(this)はopen.onのopenを指している
+    // $(this)はopen.on('click', function()のopenを指している https://course.lull-inc.co.jp/curriculum/3230/
+    // $(this)を$('.modal-open')でも表示はできるけど一番最初の変数しか表示されないので注意
     open.on('click', function(){
         container.addClass('active');
         var modal_day = $(this).attr('modal_day');
