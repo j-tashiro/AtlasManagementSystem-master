@@ -16,6 +16,8 @@ var open = $('.modal-open'),
         container.addClass('active');
         var modal_day = $(this).attr('modal_day');
         var modal_time = $(this).attr('modal_time');
+        var cancel_day_hidden = $(this).attr('cancel_day_hidden');
+        $('.cancel_day').val(cancel_day_hidden);
         $('.modal_layout_day span').text(modal_day);
         $('.modal_layout_time span').text(modal_time);
         $('.modal_layout_time span').val(modal_time);

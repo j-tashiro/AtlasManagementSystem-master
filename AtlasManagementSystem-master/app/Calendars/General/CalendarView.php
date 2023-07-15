@@ -72,6 +72,7 @@ class CalendarView{
             $html[] = '<button type="submit"
             modal_day="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'"
             modal_time="'.$reservePart.'"
+            cancel_day_hidden='.$day->authReserveDate($day->everyDay())->first()->setting_part.'
             class="modal-open btn btn-danger p-0 w-75" name="delete_date" style="font-size:12px"
             value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';

@@ -10,7 +10,6 @@
       <div class="">
         <!-- Calendar.View.phpのrenderメソッドと連動している -->
         {!! $calendar->render() !!}
-        
       </div>
     </div>
     <div class="text-right w-75 m-auto">
@@ -23,6 +22,7 @@
 <!-- 予約をキャンセルをするための確認画面を追加 -->
 <!-- モーダル本体 -->
 <div class="modal-container">
+  <form action="{{ route('deleteParts') }}" method="POST" >
 	<div class="modal-body">
 		<!-- 閉じるボタン -->
 		<div class="modal-close">×</div>
@@ -32,6 +32,7 @@
         <!-- 2023.07.13 -->
         <p>予約日：</p>
         <span name="modal_day"></span>
+        <input class="cancel_day" type="hidden" name="cancel_day" >
       </div>
         <div class="modal_layout_time">
           <p>時間：</p>
@@ -39,11 +40,14 @@
         </div>
       <p>上記の予約をキャンセルしてもよろしいでしょうか？</p>
       <div class="modal_btn">
+        <!-- modal-close-btnでクリックしたタイミングでモーダルが閉じる -->
         <button  class="btn btn-primary modal-close-btn">閉じる</button>
-        <button  class="btn btn-danger">キャンセルする</button>
+        <!-- 2023.07.15 キャンセル機能 -->
+        <input type="submit" class="btn btn-danger" value="キャンセルする">
       </div>
 		</div>
 	</div>
+  </form>
 </div>
 
 
