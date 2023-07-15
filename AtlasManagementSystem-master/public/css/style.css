@@ -352,7 +352,8 @@ li{
 .btn-danger{
   color: #FF0000;
 }
-.modal_layout{
+/* 2023.07.15クラス名が違って同じcssを適用したいときはこれ */
+.modal_layout_time,.modal_layout_day{
   display: flex;
 }
 

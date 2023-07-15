@@ -69,7 +69,7 @@ class CalendarView{
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }else{//未来の予約した日 2023.07.15 キャンセル時の値の受け渡し 追加した所
             $html[] = '<button type="submit"
-            modal_day="{{ $post->post_title }}"
+            modal_day="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'"
             modal_time="'.$reservePart.'"
             class="modal-open btn btn-danger p-0 w-75"
             name="delete_date" style="font-size:12px"

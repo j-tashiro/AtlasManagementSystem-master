@@ -6,23 +6,18 @@ var open = $('.modal-open'),
     btn = $('.modal-close-btn'),
     container = $('.modal-container');
 
-    // 2023.07.09 モーダルを開く
+    // 2023.07.15 モーダルを開く キャンセル時の値の受け渡し
+    // jQueryメソッド→attr attr=属性 val text
+    // textはviewに文字を表示させる valはhtmlのvalueと同じ意味 データ(情報)を送る
+    // $(this)はopen.onのopenを指している
     open.on('click', function(){
         container.addClass('active');
+        var modal_day = $(this).attr('modal_day');
+        var modal_time = $(this).attr('modal_time');
+        $('.modal_layout_day span').text(modal_day);
+        $('.modal_layout_time span').text(modal_time);
+        $('.modal_layout_time span').val(modal_time);
     });
-
-    // 2023.07.15
-    //キャンセル時の値の受け渡し
-    // jQueryメソッド→attr val text
-    // textはviewに文字を表示させる
-    // valはhtmlのvalueと同じ意味 データ(情報)を送る
-    // attr=属性
-    var modal_day = $(this).attr('modal_day');
-    var modal_time = $('.modal-open').attr('modal_time');
-    $('.modal_layout span').text(modal_day);
-    $('.modal_layout span').text(modal_time);
-    $('.modal_layout span').val(modal_time);
-
 
     // 2023.07.09 モーダルを閉じる ×ボタンをクリックして閉じる
     close.on('click',function(){

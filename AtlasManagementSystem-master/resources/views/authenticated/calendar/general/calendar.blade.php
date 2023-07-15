@@ -10,6 +10,7 @@
       <div class="">
         <!-- Calendar.View.phpのrenderメソッドと連動している -->
         {!! $calendar->render() !!}
+        
       </div>
     </div>
     <div class="text-right w-75 m-auto">
@@ -27,12 +28,12 @@
 		<div class="modal-close">×</div>
 		<!-- モーダル内のコンテンツ -->
 		<div class="modal-content">
-      <div class="modal_layout">
+      <div class="modal_layout_day">
         <!-- 2023.07.13 -->
         <p>予約日：</p>
         <span name="modal_day"></span>
       </div>
-        <div class="modal_layout">
+        <div class="modal_layout_time">
           <p>時間：</p>
           <span name="modal_time"></span>
         </div>
