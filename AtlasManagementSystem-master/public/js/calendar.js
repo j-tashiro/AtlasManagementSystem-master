@@ -11,7 +11,7 @@ var open = $('.modal-open'),
         container.addClass('active');
     });
 
-    // 2023.07.13
+    // 2023.07.15
     //キャンセル時の値の受け渡し
     // jQueryメソッド→attr val text
     // textはviewに文字を表示させる
@@ -22,8 +22,8 @@ var open = $('.modal-open'),
     $('.modal_layout span').text(modal_day);
     $('.modal_layout span').text(modal_time);
     $('.modal_layout span').val(modal_time);
-    return false;
-});
+
+
     // 2023.07.09 モーダルを閉じる ×ボタンをクリックして閉じる
     close.on('click',function(){
         container.removeClass('active');
@@ -41,7 +41,7 @@ var open = $('.modal-open'),
     }
     });
 
-
+});
 
 
 

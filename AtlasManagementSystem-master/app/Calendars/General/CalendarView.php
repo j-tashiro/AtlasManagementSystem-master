@@ -67,7 +67,7 @@ class CalendarView{
           if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){//過去の予約した日
             $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">'.$reservePart.'参加</p>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
-          }else{//未来の予約した日
+          }else{//未来の予約した日 2023.07.15 キャンセル時の値の受け渡し 追加した所
             $html[] = '<button type="submit"
             modal_day="{{ $post->post_title }}"
             modal_time="'.$reservePart.'"
