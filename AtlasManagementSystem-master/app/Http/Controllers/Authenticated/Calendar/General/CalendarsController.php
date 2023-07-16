@@ -27,9 +27,10 @@ class CalendarsController extends Controller
             $getDate = $request->getData;//$getDateが日付を格納している
             $reserveDays = array_filter(array_combine($getDate, $getPart));//予約日と予約部を紐づけしている 配列で格納してる
             foreach($reserveDays as $key => $value){
-                $reserve_settings = ReserveSettings::where('setting_reserve', $key)->where('setting_part', $value)->first();//setting_reserve カラムが $key（予約日）と一致し、setting_part カラムが $value（予約部）と一致する最初のレコードを取得
-                $reserve_settings->decrement('limit_users');//ReserveSettingsモデルと繋がってるテーブルのlimit_usersカラムをdecrementで増減させている つまり予約数を1減らし残り何人予約枠があいてるか調整してるところ
-                $reserve_settings->users()->attach(Auth::id());
+                $reserve_settings = ReserveSettings::where('setting_reserve', $key)
+                ->where('setting_part', $value)->first();//setting_reserve カラムが $key（予約日）と一致し、setting_part カラムが $value（予約部）と一致する最初のレコードを取得
+                $reserve_settings->decrement('limit_users');//ReserveSettingsモデルと繋がってるテーブルのlimit_usersカラムをdecrementで減らしている つまり予約数を1減らし残り何人予約枠があいてるか調整してるところ
+                $reserve_settings->users()->attach(Auth::id());//
             }
             DB::commit();
         }catch(\Exception $e){
@@ -49,9 +50,8 @@ class CalendarsController extends Controller
 
             // 予約設定の予約可能数を増やす
             $reserveSettings = ReserveSettings::where('setting_reserve', $reservation->setting_reserve)
-                ->where('setting_part', $reservation->setting_part)
-                ->firstOrFail();
-            $reserveSettings->increment('limit_users');
+            ->where('setting_part', $reservation->setting_part)->firstOrFail();
+            $reserveSettings->increment('limit_users');//ReserveSettingsモデルと繋がってるテーブルのlimit_usersカラムをincrementで増やしている つまり予約数を1増やし残り何人予約枠があいてるか調整してるとこ
 
             // 関連するユーザーを予約から削除
             $reservation->users()->detach();
@@ -59,12 +59,12 @@ class CalendarsController extends Controller
             DB::commit();
 
             // キャンセル処理成功後のリダイレクトなどの適切な処理を追加する
-            return redirect()->back()->with('success', '予約をキャンセルしました。');
+            return redirect()->route('calendar.general.show', ['user_id' => Auth::id()]);
         } catch (\Exception $e) {
             DB::rollback();
 
             // キャンセル処理が失敗した場合のエラーハンドリングや適切な処理を追加する
-            return redirect()->back()->with('error', '予約キャンセルに失敗しました。');
+            return redirect()->route('calendar.general.show', ['user_id' => Auth::id()]);
         }
     }
 
