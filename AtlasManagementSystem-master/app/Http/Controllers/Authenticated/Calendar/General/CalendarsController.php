@@ -40,7 +40,7 @@ class CalendarsController extends Controller
 
     // 2023.07.15 キャンセル機能
     public function delete(Request $request)
-    {dd($request);
+    {
         $reservationId = $request->input('reservation_id');
 
         DB::beginTransaction();

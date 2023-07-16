@@ -21,8 +21,8 @@
 
 <!-- 予約をキャンセルをするための確認画面を追加 -->
 <!-- モーダル本体 -->
+<form action="{{ route('deleteParts') }}" method="POST" >
 <div class="modal-container">
-  <form action="{{ route('deleteParts') }}" method="POST" >
 	<div class="modal-body">
 		<!-- 閉じるボタン -->
 		<div class="modal-close">×</div>
@@ -41,14 +41,14 @@
       <p>上記の予約をキャンセルしてもよろしいでしょうか？</p>
       <div class="modal_btn">
         <!-- modal-close-btnでクリックしたタイミングでモーダルが閉じる -->
-        <button  class="btn btn-primary modal-close-btn">閉じる</button>
+        <div class="btn btn-primary modal-close-btn">閉じる</div>
         <!-- 2023.07.15 キャンセル機能 -->
         <input type="submit" class="btn btn-danger" value="キャンセルする">
       </div>
 		</div>
 	</div>
-  </form>
 </div>
+</form>
 
 
 
