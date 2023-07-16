@@ -51,7 +51,7 @@ class CalendarsController extends Controller
         try {
             // 予約設定の予約可能数を増やす
             $reserve_cancel = ReserveSettings::where('setting_reserve', $cancel_reserve)
-            ->where('setting_part', $cancel_part)->firstOrFail();
+            ->where('setting_part', $cancel_part)->first();
             $reserve_cancel->increment('limit_users');//ReserveSettingsモデルと繋がってるテーブルのlimit_usersカラムをincrementで増やしている つまり予約数を1増やし残り何人予約枠があいてるか調整してるとこ
             $reserve_cancel->users()->detach(Auth::id());// 関連するユーザーを予約から削除
 
