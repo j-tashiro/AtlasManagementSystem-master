@@ -14,13 +14,15 @@ var open = $('.modal-open'),
     // 今回のカレンダーのような繰り返し似たようなものがでてくる時は$(this)を使う必要あり
     open.on('click', function(){
         container.addClass('active');
-        var modal_day = $(this).attr('modal_day');
-        var modal_time = $(this).attr('modal_time');
-        var cancel_day_hidden = $(this).attr('cancel_day_hidden');
-        $('.cancel_day').val(cancel_day_hidden);
-        $('.modal_layout_day span').text(modal_day);
-        $('.modal_layout_time span').text(modal_time);
-        $('.modal_layout_time span').val(modal_time);
+        var modal_reserve = $(this).attr('modal_reserve');
+        var modal_part = $(this).attr('modal_part');
+        var cancel_reserve = $(this).attr('cancel_reserve');
+        var cancel_part = $(this).attr('cancel_part');
+        $('.modal_layout_reserve span').text(modal_reserve);
+        $('.modal_layout_part span').text(modal_part);
+        $('.modal_layout_part span').val(modal_part);
+        $('.cancel_reserve').val(cancel_reserve);
+        $('.cancel_part').val(cancel_part);
     });
 
     // 2023.07.09 モーダルを閉じる ×ボタンをクリックして閉じる

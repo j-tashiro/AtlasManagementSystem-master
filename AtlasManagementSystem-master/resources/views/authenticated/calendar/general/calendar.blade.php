@@ -28,15 +28,16 @@
 		<div class="modal-close">×</div>
 		<!-- モーダル内のコンテンツ -->
 		<div class="modal-content">
-      <div class="modal_layout_day">
+      <div class="modal_layout_reserve">
         <!-- 2023.07.13 -->
         <p>予約日：</p>
         <span name="modal_day"></span>
-        <input class="cancel_day" type="hidden" name="cancel_day" >
+        <input class="cancel_day" type="hidden" name="cancel_reserve" >
       </div>
-        <div class="modal_layout_time">
+        <div class="modal_layout_part">
           <p>時間：</p>
           <span name="modal_time"></span>
+          <input class="cancel_day" type="hidden" name="cancel_part" >
         </div>
       <p>上記の予約をキャンセルしてもよろしいでしょうか？</p>
       <div class="modal_btn">

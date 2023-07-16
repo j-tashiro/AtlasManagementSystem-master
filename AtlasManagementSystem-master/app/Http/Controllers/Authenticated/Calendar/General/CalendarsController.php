@@ -27,11 +27,14 @@ class CalendarsController extends Controller
             $getDate = $request->getData;//$getDateが日付を格納している
             $reserveDays = array_filter(array_combine($getDate, $getPart));//予約日と予約部を紐づけしている 配列で格納してる
             foreach($reserveDays as $key => $value){
-                $reserve_settings = ReserveSettings::where('setting_reserve', $key)
-                ->where('setting_part', $value)->first();//setting_reserve カラムが $key（予約日）と一致し、setting_part カラムが $value（予約部）と一致する最初のレコードを取得
+
+                $reserve_settings = ReserveSettings::where('setting_reserve', $key)//setting_reserveカラムが$key（予約日）と一致し、
+                ->where('setting_part', $value)//setting_partカラムが$value（予約部）と一致する
+                ->first();//最初のレコードを取得
+
                 $reserve_settings->decrement('limit_users');//ReserveSettingsモデルと繋がってるテーブルのlimit_usersカラムをdecrementで減らしている つまり予約数を1減らし残り何人予約枠があいてるか調整してるところ
-                $reserve_settings->users()->attach(Auth::id());//
-            }
+                $reserve_settings->users()->attach(Auth::id());//->users()は中間テーブル リレーション 予約に必要な情報はusersテーブルのidとreserve_settingsテーブルのid
+            }//attachはざっくり言うと登録するby一色講師
             DB::commit();
         }catch(\Exception $e){
             DB::rollback();
@@ -42,19 +45,17 @@ class CalendarsController extends Controller
     // 2023.07.15 キャンセル機能
     public function delete(Request $request)
     {
-        $reservationId = $request->input('reservation_id');
-
+        $cancel_reserve = $request->input('cancel_reserve');
+        $cancel_part = $request->input('cancel_part');
         DB::beginTransaction();
         try {
             $reservation = ReserveSettings::findOrFail($reservationId);
 
             // 予約設定の予約可能数を増やす
-            $reserveSettings = ReserveSettings::where('setting_reserve', $reservation->setting_reserve)
-            ->where('setting_part', $reservation->setting_part)->firstOrFail();
-            $reserveSettings->increment('limit_users');//ReserveSettingsモデルと繋がってるテーブルのlimit_usersカラムをincrementで増やしている つまり予約数を1増やし残り何人予約枠があいてるか調整してるとこ
-
-            // 関連するユーザーを予約から削除
-            $reservation->users()->detach();
+            $reserve_cancel = ReserveSettings::where('setting_reserve', $cancel_reserve)
+            ->where('setting_part', $cancel_part)->firstOrFail();
+            $reserve_cancel->increment('limit_users');//ReserveSettingsモデルと繋がってるテーブルのlimit_usersカラムをincrementで増やしている つまり予約数を1増やし残り何人予約枠があいてるか調整してるとこ
+            $reserve_cancel->users()->detach(Auth::id());// 関連するユーザーを予約から削除
 
             DB::commit();
 

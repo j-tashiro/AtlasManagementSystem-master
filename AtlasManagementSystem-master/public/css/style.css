@@ -353,7 +353,7 @@ li{
   color: #FF0000;
 }
 /* 2023.07.15クラス名が違って同じcssを適用したいときはこれ */
-.modal_layout_time,.modal_layout_day{
+.modal_layout_reserve,.modal_layout_part{
   display: flex;
 }
 

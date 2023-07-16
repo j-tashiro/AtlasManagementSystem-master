@@ -70,9 +70,10 @@ class CalendarView{
           }else{//未来の予約した日 2023.07.15 キャンセル時の値の受け渡し 追加した所
             // dd();関数で値を確認して自分の欲しい情報を持ってる記述をそのままコピペしただけ
             $html[] = '<button type="submit"
-            modal_day="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'"
-            modal_time="'.$reservePart.'"
-            cancel_day_hidden='.$day->authReserveDate($day->everyDay())->first()->setting_part.'
+            modal_reserve="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'"
+            modal_part="'.$reservePart.'"
+            cancel_reserve='.$day->authReserveDate($day->everyDay())->first()->setting_part.'
+            cancel_part='.$reservePart.'
             class="modal-open btn btn-danger p-0 w-75" name="delete_date" style="font-size:12px"
             value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
