@@ -18,11 +18,12 @@ var open = $('.modal-open'),
         var modal_part = $(this).attr('modal_part');
         var cancel_reserve = $(this).attr('cancel_reserve');
         var cancel_part = $(this).attr('cancel_part');
-        $('.modal_layout_reserve span').text(modal_reserve);
-        $('.modal_layout_part span').text(modal_part);
-        $('.modal_layout_part span').val(modal_part);
-        $('.cancel_reserve').val(cancel_reserve);
-        $('.cancel_part').val(cancel_part);
+        //reserve=予約日 part=予約部
+        $('.modal_layout_reserve span').text(modal_reserve);//日付が送れている
+        $('.modal_layout_part span').text(modal_part);//リモ何部が送れている
+        // $('.cancel_reserve').text(cancel_reserve);//nullになる
+        $('.cancel_reserve').val(cancel_reserve);//2(数字が送れている)
+        $('.cancel_part').val(cancel_part);//リモ何部が送れている
     });
 
     // 2023.07.09 モーダルを閉じる ×ボタンをクリックして閉じる

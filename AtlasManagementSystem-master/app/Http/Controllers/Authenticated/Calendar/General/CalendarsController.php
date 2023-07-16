@@ -49,8 +49,6 @@ class CalendarsController extends Controller
         $cancel_part = $request->input('cancel_part');
         DB::beginTransaction();
         try {
-            $reservation = ReserveSettings::findOrFail($reservationId);
-
             // 予約設定の予約可能数を増やす
             $reserve_cancel = ReserveSettings::where('setting_reserve', $cancel_reserve)
             ->where('setting_part', $cancel_part)->firstOrFail();
